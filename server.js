@@ -8,7 +8,7 @@ const path = require('path');
 const fileUpload = require('express-fileupload')
 
 var corsOptions = {
-  origin: "http://localhost:3000"
+  origin: ["http://localhost:3000" , "https://wingrowmarket.onrender.com/"]
 };
 
 app.use(bodyParser.urlencoded({ extended: false }))

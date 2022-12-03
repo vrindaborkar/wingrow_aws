@@ -1,7 +1,8 @@
 import axios from "axios";
 import authHeader from "./auth.headers";
 
-const API_URL = "https://wingrowagritech.herokuapp.com/auth/";
+// const API_URL = "https://wingrowagritech.herokuapp.com/auth/";
+const API_URL = "https://wingrowmarket.onrender.com/auth/";
 
 const register = (phone , password , firstname , lastname , type , farmertype , address , tags) => {
   return axios.post(API_URL + "signup", {
