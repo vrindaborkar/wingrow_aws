@@ -8,7 +8,8 @@ const path = require('path');
 const fileUpload = require('express-fileupload')
 
 var corsOptions = {
-  origin: ["http://localhost:3000" , "https://wingrowmarket.onrender.com/"]
+  // origin: "http://wingrowagritech.herokuapp.com/"
+  origin: "*"
 };
 
 app.use(bodyParser.urlencoded({ extended: false }))

@@ -103,6 +103,7 @@ export default function Register() {
     else if(type === "farmer" && tags.length === 0){
       seterror("select atleast one commodity and press enter")
     }
+    
     else{
       seterror("no error")
       setLoading(true)
@@ -127,7 +128,7 @@ export default function Register() {
             // alert("Registration successful!")
           },
         (error) => {
-          toast.warn('Registration failed', {
+          toast.warn('User Already Exists', {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -146,8 +147,12 @@ export default function Register() {
             farmertype:"",
             address:""
           })
-          setTags([])
-          setLoading(false)
+          setTimeout(() => {
+            navigate('/login');
+            window.location.reload()
+          }, 1000);
+          // setTags([])
+          // setLoading(false)
           // alert("Registration failed")
           // setData({
           //   phone:'',
@@ -178,7 +183,7 @@ export default function Register() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                InputLabelProps={{ style: { fontSize: 14, fontFamily: "monospace" } }}
+                inputlabelprops={{ style: { fontSize: 14, fontFamily: "monospace" } }}
                   autoComplete="given-name"
                   name="firstname"
                   value={data.firstname}
@@ -192,7 +197,7 @@ export default function Register() {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                InputLabelProps={{ style: { fontSize: 14, fontFamily: "monospace" } }}
+                inputlabelprops={{ style: { fontSize: 14, fontFamily: "monospace" } }}
                   required
                   fullWidth
                   id="lastName"
@@ -205,7 +210,7 @@ export default function Register() {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                InputLabelProps={{ style: { fontSize: 14, fontFamily: "monospace" } }}
+                inputlabelprops={{ style: { fontSize: 14, fontFamily: "monospace" } }}
                   required
                   fullWidth
                   id="phone"
@@ -217,7 +222,7 @@ export default function Register() {
               </Grid>
               <Grid item xs={12} sm={6}>
               <FormControl sx={{ width:"100%" , fontSize:14}}>
-                <InputLabel InputLabelProps={{ style: { fontSize: 14, fontFamily: "monospace" } }} id="demo-simple-select-helper-label">Type</InputLabel>
+                <InputLabel inputlabelprops={{ style: { fontSize: 14, fontFamily: "monospace" } }} id="demo-simple-select-helper-label">Type</InputLabel>
                 <Select
                   sx={{fontSize: '1.2rem'}}
                   labelId="demo-simple-select-helper-label"
@@ -265,7 +270,7 @@ export default function Register() {
 
               <Grid item xs={12}>
                 <TextField
-                InputLabelProps={{ style: { fontSize: 14, fontFamily: "monospace" } }}
+                inputlabelprops={{ style: { fontSize: 14, fontFamily: "monospace" } }}
                   required
                   fullWidth
                   name="password"
@@ -279,7 +284,7 @@ export default function Register() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                InputLabelProps={{ style: { fontSize: 14, fontFamily: "monospace" } }}
+                inputlabelprops={{ style: { fontSize: 14, fontFamily: "monospace" } }}
                   fullWidth
                   name="address"
                   label="address (optional)"
@@ -293,7 +298,7 @@ export default function Register() {
               {data.type === "farmer" && <Grid item xs={12}>
               <ReactTags
               InputProps={{style: {fontSize: 15}}}
-              InputLabelProps={{style: {fontSize: 15}}}
+              inputlabelprops={{style: {fontSize: 15}}}
                 tags={tags}
                 delimiters={delimiters}
                 handleDelete={handleDelete}

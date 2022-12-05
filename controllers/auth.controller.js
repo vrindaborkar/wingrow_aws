@@ -31,9 +31,15 @@ exports.signup = async(req , res , next)=>{
           address,
           tags
         })
-  
-        const data = await user.save()
-  
+      
+        // const data = await user.save()
+        try {
+          const data = await user.save();
+          console.log(data);
+        } catch (error) {
+          console.error(error);
+        }
+      
         if(!data){
           res.status(400).send("registration failed")
         }

@@ -53,7 +53,8 @@ const Checkout = () => {
       
       handler:async(response) =>{
           try {
-              const verifyUrl = "http://localhost:4000/verify";
+              // const verifyUrl = "http://localhost:4000/verify";
+              const verifyUrl = "/verify";
               const {data} = await axios.post(verifyUrl,response,{headers:authHeader()})
 
               if(data){

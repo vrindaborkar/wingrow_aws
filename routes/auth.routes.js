@@ -12,6 +12,10 @@ module.exports = function(app) {
 
   app.post("/auth/signup",[verifySignUp.checkDuplicatePhone],controller.signup );
   app.post("/auth/signin", controller.signin);
-  app.put("/auth/image" , controller.postPic)
-  app.post("/auth/address", controller.addAddress);
+  // app.put("/auth/image" , controller.postPic)
+  // app.post("/auth/address", controller.addAddress);
+  // app.post("/signup",[verifySignUp.checkDuplicatePhone],controller.signup );
+  // app.post("/signin", controller.signin);
+  app.put("/image" , controller.postPic)
+  app.post("/address", controller.addAddress);
 };
